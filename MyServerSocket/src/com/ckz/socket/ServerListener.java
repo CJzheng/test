@@ -21,7 +21,10 @@ public class ServerListener extends Thread {
 				Socket socket = serverSocket.accept();// 阻塞当前线程,block
 				JOptionPane.showMessageDialog(null, "有客服机链接到本地的12345端口!");
 				//将socket传给新的线程 
-				new ChatSocket(socket).start();
+				ChatSocket cs = new ChatSocket(socket);
+				cs.start();
+				//添加到聊天管理器中
+				ChatManager.getChatManager().add(cs);
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
