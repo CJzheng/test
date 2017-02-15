@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 /**
  * 使用accept（）方法获取与客户端的Socket链接对象，将该对象指派给一个新的线程，在线程中执行网络数据的交换。实现一对一的数据传输。
  * @author kaiser
- *
+ *test
  */
 @SuppressWarnings("resource")
 public class ServerListener extends Thread {
