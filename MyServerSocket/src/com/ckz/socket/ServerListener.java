@@ -28,6 +28,7 @@ public class ServerListener extends Thread {
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			System.out.println("±®¥Ì¿≤");
 			e.printStackTrace();
 		}
 	}
