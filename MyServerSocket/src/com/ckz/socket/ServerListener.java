@@ -6,7 +6,7 @@ import java.net.Socket;
 
 import javax.swing.JOptionPane;
 /**
- * Ê¹ÓÃaccept£¨£©·½·¨»ñÈ¡Óë¿Í»§¶ËµÄSocketÁ´½Ó¶ÔÏó£¬½«¸Ã¶ÔÏóÖ¸ÅÉ¸øÒ»¸öĞÂµÄÏß³Ì£¬ÔÚÏß³ÌÖĞÖ´ĞĞÍøÂçÊı¾İµÄ½»»»¡£ÊµÏÖÒ»¶ÔÒ»µÄÊı¾İ´«Êä¡£
+ * ä½¿ç”¨acceptï¼ˆï¼‰æ–¹æ³•è·å–ä¸å®¢æˆ·ç«¯çš„Socketé“¾æ¥å¯¹è±¡ï¼Œå°†è¯¥å¯¹è±¡æŒ‡æ´¾ç»™ä¸€ä¸ªæ–°çš„çº¿ç¨‹ï¼Œåœ¨çº¿ç¨‹ä¸­æ‰§è¡Œç½‘ç»œæ•°æ®çš„äº¤æ¢ã€‚å®ç°ä¸€å¯¹ä¸€çš„æ•°æ®ä¼ è¾“ã€‚
  * @author kaiser
  *test
  */
@@ -15,20 +15,21 @@ public class ServerListener extends Thread {
 	@Override
 	public void run() {
 		try {
-			// 1-65535£¬¶Ë¿ÚºÅµÄ·¶Î§
-			ServerSocket serverSocket = new ServerSocket(12345);// Ö¡ÌıÕâ¸ö¶Ë¿Ú
+			// 1-65535ï¼Œç«¯å£å·çš„èŒƒå›´
+			ServerSocket serverSocket = new ServerSocket(12345);// å¸§å¬è¿™ä¸ªç«¯å£
 			while (true) {
-				Socket socket = serverSocket.accept();// ×èÈûµ±Ç°Ïß³Ì,block
-				JOptionPane.showMessageDialog(null, "ÓĞ¿Í·ş»úÁ´½Óµ½±¾µØµÄ12345¶Ë¿Ú!");
-				//½«socket´«¸øĞÂµÄÏß³Ì 
+				Socket socket = serverSocket.accept();// é˜»å¡å½“å‰çº¿ç¨‹,block
+				JOptionPane.showMessageDialog(null, "æœ‰å®¢æœæœºé“¾æ¥åˆ°æœ¬åœ°çš„12345ç«¯å£!");
+				//å°†socketä¼ ç»™æ–°çš„çº¿ç¨‹ 
 				ChatSocket cs = new ChatSocket(socket);
 				cs.start();
-				//Ìí¼Óµ½ÁÄÌì¹ÜÀíÆ÷ÖĞ
+				//æ·»åŠ åˆ°èŠå¤©ç®¡ç†å™¨ä¸­
 				ChatManager.getChatManager().add(cs);
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			System.out.println("±¨´íÀ²");
+			// åªæ˜¯ç©ä¸€ç©è€Œå·²
+			System.out.println("æŠ¥é”™å•¦");
 			e.printStackTrace();
 		}
 	}
